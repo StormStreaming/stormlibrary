@@ -1,0 +1,3 @@
+include ':stormlibrary'
+include ':app'
+rootProject.name = "StormLibraryApp"
