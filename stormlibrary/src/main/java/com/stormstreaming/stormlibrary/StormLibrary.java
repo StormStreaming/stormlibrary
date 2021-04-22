@@ -2,6 +2,7 @@ package com.stormstreaming.stormlibrary;
 
 import android.content.Context;
 
+import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.stormstreaming.stormlibrary.events.Listeners;
 import com.stormstreaming.stormlibrary.exception.EmptyMediaItemsListException;
@@ -260,5 +261,9 @@ public class StormLibrary {
 
     public long getLastPauseTime() {
         return lastPauseTime;
+    }
+
+    public SimpleExoPlayer getExoPlayer(){
+        return this.exoPlayerImpl.getExoPlayer();
     }
 }

@@ -43,6 +43,10 @@ public class ExoPlayerImpl implements Player.EventListener, AudioListener{
         exoPlayer.addAudioListener(this);
     }
 
+    public SimpleExoPlayer getExoPlayer() {
+        return exoPlayer;
+    }
+
     public void setMediaItem(MediaItem stormMediaItem){
         exoPlayer.setMediaItem(stormMediaItem);
     }
