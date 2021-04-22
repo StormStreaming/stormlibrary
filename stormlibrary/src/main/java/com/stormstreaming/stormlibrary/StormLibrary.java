@@ -223,6 +223,10 @@ public class StormLibrary {
         listeners.addEventListener(e);
     }
 
+    public void removeEventListener(StormLibrary.EventListener e) {
+        listeners.removeEventListener(e);
+    }
+
     public StormWebSocketConnection getCurrentWebSocketConnection() {
         return currentWebSocketConnection;
     }
