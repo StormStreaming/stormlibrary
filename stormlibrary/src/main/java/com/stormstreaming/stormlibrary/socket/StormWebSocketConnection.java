@@ -188,7 +188,7 @@ public class StormWebSocketConnection extends WebSocketClient{
     public void onError(Exception ex) {
         Log.e("Websocket", "Error " + ex.getMessage());
         if(ex instanceof NullPointerException == false)
-            this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onConnectionError(ex));
+            this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onVideoConnectionError(ex));
 
     }
 

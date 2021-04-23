@@ -25,7 +25,7 @@ public class StormLibrary {
         default public void onVideoMetaData(VideoMetaData videoMetaData) {
         }
 
-        default public void onConnectionError(Exception e) {
+        default public void onVideoConnectionError(Exception e) {
         }
 
         default public void onVideoNotFound() {
