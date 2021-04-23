@@ -41,13 +41,14 @@ public class StormLibrary {
 
         }
 
+        default public void onVideoPlay() {
+        }
+
+        default public void onVideoPause() {
+        }
+
+
         default public void onIncompatiblePlayerProtocol(int playerProtocolVersion, int serverProtocolVersion) {
-        }
-
-        default public void onPlay() {
-        }
-
-        default public void onPause() {
         }
 
         default public void onVolumeChanged(float volume) {
