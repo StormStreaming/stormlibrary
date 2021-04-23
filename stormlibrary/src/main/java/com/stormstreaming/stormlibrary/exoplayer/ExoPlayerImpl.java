@@ -61,7 +61,7 @@ public class ExoPlayerImpl implements Player.EventListener, AudioListener{
 
     public void pause(){
         exoPlayer.pause();
-        this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onPause());
+        this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onVideoPause());
     }
 
     public void setVolume(float volume){
@@ -84,7 +84,7 @@ public class ExoPlayerImpl implements Player.EventListener, AudioListener{
     public void onIsPlayingChanged(boolean isPlaying){
         this.stormLibrary.setPlaying(isPlaying);
         if(isPlaying)
-            this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onPlay());
+            this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onVideoPlay());
     }
 
     @Override
@@ -114,6 +114,6 @@ public class ExoPlayerImpl implements Player.EventListener, AudioListener{
 
     @Override
     public void onPlayerError(ExoPlaybackException error) {
-        System.out.println("ERRORRO ERRORRO EEORROR");
+
     }
 }
