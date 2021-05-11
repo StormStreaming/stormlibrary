@@ -70,6 +70,6 @@ public class StormMediaItem {
     }
 
     public MediaItem getMediaItem(){
-        return MediaItem.fromUri(Uri.parse((isSSL() ? "wss" : "ws") + "://" + getHost() + ":" + getPort() + "/h5live/stream/?url=rtmp%3A%2F%2Fstormdev.web-anatomy.com%3A1935%2Flive&stream=" + getStreamName() + "&"));
+        return MediaItem.fromUri(Uri.parse((isSSL() ? "wss" : "ws") + "://" + getHost() + ":" + getPort() + "/storm/stream/?url=rtmp%3A%2F%2F"+getHost()+"%3A1935%2Flive&stream=" + getStreamName() + "&"));
     }
 }
