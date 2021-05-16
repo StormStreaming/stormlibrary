@@ -192,18 +192,4 @@ public class StormWebSocketConnection extends WebSocketClient{
 
     }
 
-    public final static void printByteArrayAsHEX(byte[] buff) {
-
-        int k = 0;
-        for (int i = 0; i < buff.length; i++) {
-            System.out.print(String.format("%02X", buff[i]) + " ");
-            k++;
-            if (k == 16) {
-                System.out.print("\r");
-                k = 0;
-            }
-        }
-        System.out.println("/n/r");
-    }
-
 }

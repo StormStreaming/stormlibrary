@@ -1,4 +1,4 @@
-package com.stormstreaming.stormlibraryapp;
+package com.stormstreaming.librarysample;
 
 import org.junit.Test;
 

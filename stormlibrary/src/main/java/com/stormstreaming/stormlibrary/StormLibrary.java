@@ -62,6 +62,13 @@ public class StormLibrary {
 
         default public void onStormMediaItemPlay(StormMediaItem stormMediaItem){}
 
+        default public void onGatewayConnecting(){}
+
+        default public void onGatewayConnectionError(Exception e){}
+
+        default public void onGatewayGroupNameNotFound(){}
+
+        default public void onGatewayStormMediaItems(List<StormMediaItem> stormMediaItems){}
 
     }
 
@@ -71,6 +78,7 @@ public class StormLibrary {
     private List<StormMediaItem> stormMediaItems = new ArrayList<StormMediaItem>();
     private Listeners<EventListener> listeners = new Listeners<StormLibrary.EventListener>();
     private StormWebSocketConnection currentWebSocketConnection;
+    private StormGateway stormGateway;
 
     /*
     When should stream start after connecting
@@ -86,6 +94,11 @@ public class StormLibrary {
 
     public StormLibrary() {
 
+    }
+
+    public StormGateway initStormGateway(String groupName){
+        this.stormGateway = new StormGateway(this, groupName);
+        return this.stormGateway;
     }
 
     public void initExoPlayer(Context context, PlayerView exoPlayerView) {
@@ -197,6 +210,11 @@ public class StormLibrary {
 
     public void prepare(boolean autostart) throws EmptyMediaItemsListException {
 
+        if(this.stormGateway != null && this.stormMediaItems.size() == 0){
+            this.stormGateway.prepare(autostart);
+            return;
+        }
+
         StormMediaItem stormMediaItem = this.getSelectedStormMediaItem();
 
         if (stormMediaItem == null) {
@@ -270,5 +288,9 @@ public class StormLibrary {
 
     public SimpleExoPlayer getExoPlayer(){
         return this.exoPlayerImpl.getExoPlayer();
+    }
+
+    public StormGateway getStormGateway(){
+        return this.stormGateway;
     }
 }

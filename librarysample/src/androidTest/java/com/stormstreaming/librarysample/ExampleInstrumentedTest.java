@@ -1,4 +1,4 @@
-package com.stormstreaming.stormlibraryapp;
+package com.stormstreaming.librarysample;
 
 import android.content.Context;
 
