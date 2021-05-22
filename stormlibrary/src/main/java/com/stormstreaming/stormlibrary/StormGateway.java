@@ -104,6 +104,8 @@ public class StormGateway {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        if(currentWebsocketconnection != null)
+            currentWebsocketconnection.close();
     }
     public void connect(){
 
@@ -165,6 +167,8 @@ public class StormGateway {
         Runnable myRunnable = new Runnable() {
             @Override
             public void run() {
+
+                stormLibrary.clearStormMediaItems();
                 for(int i=0;i<stormMediaItems.size();i++) {
                     stormLibrary.addMediaItem(stormMediaItems.get(i), stormMediaItems.get(i).isSelected());
                 }

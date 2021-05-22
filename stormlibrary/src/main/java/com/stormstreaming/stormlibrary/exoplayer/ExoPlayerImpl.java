@@ -74,6 +74,7 @@ public class ExoPlayerImpl implements Player.EventListener, AudioListener{
 
     public void stop(){
         exoPlayer.stop();
+        this.stormLibrary.getListeners().dispatchEvent(listener -> listener.onVideoPause());
     }
 
     /*

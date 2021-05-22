@@ -39,30 +39,28 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Button add = findViewById(R.id.addButton);
-        add.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //StormMediaItem m = new StormMediaItem("stormdev.web-anatomy.com", 443, true, "test_hd", "4K");
-                //stormLibrary.addMediaItem(m, true);
+        /*
+        GATEWAY EXAMPLE:
+         */
 
-                //List<StormMediaItem> m = stormLibrary.getStormMediaItems();
-                //stormLibrary.removeMediaItem(m.get(0));
-                stormLibrary.clearStormMediaItems();
-                StormGateway stormGateway = stormLibrary.initStormGateway("test");
+        /*
+        StormLibrary stormLibrary = new StormLibrary();
+        stormLibrary.initExoPlayer(this, findViewById(R.id.exoPlayerView));
 
-                StormGatewayServer server = new StormGatewayServer("stormdev.web-anatomy.com","live", 443, true);
-                stormGateway.addStormGatewayServer(server);
+        StormGateway stormGateway = stormLibrary.initStormGateway("test");
 
-                try{
+        StormGatewayServer server = new StormGatewayServer("sub1.domain.com","live", 443, true);
+        stormGateway.addStormGatewayServer(server);
 
-                    stormLibrary.prepare(false);
+        StormGatewayServer server2 = new StormGatewayServer("sub2.domain.com","live", 443, true);
+        stormGateway.addStormGatewayServer(server2);
 
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
+        try {
+            stormLibrary.prepare(true);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        */
 
         try {
             stormLibrary.prepare(false);
@@ -90,29 +88,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        /*
-        GATEWAY EXAMPLE:
-         */
-
-        /*
-        StormLibrary stormLibrary = new StormLibrary();
-        stormLibrary.initExoPlayer(this, findViewById(R.id.exoPlayerView));
-
-        StormGateway stormGateway = stormLibrary.initStormGateway("test");
-
-        StormGatewayServer server = new StormGatewayServer("sub1.domain.com","live", 443, true);
-        stormGateway.addStormGatewayServer(server);
-
-        StormGatewayServer server2 = new StormGatewayServer("sub2.domain.com","live", 443, true);
-        stormGateway.addStormGatewayServer(server2);
-
-        try {
-            stormLibrary.prepare(true);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-        */
 
     }
 }
