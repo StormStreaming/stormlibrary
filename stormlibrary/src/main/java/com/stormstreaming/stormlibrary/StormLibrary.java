@@ -228,8 +228,8 @@ public class StormLibrary {
         this.exoPlayerImpl.prepare();
         if (autostart)
             this.exoPlayerImpl.play();
-
-
+        else
+            this.exoPlayerImpl.pause();
 
     }
 
