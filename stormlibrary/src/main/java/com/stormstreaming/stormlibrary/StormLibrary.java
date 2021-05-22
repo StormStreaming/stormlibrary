@@ -97,6 +97,7 @@ public class StormLibrary {
     }
 
     public StormGateway initStormGateway(String groupName){
+        this.clearStormMediaItems();
         this.stormGateway = new StormGateway(this, groupName);
         return this.stormGateway;
     }
