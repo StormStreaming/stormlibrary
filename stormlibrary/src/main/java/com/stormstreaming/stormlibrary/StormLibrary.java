@@ -212,6 +212,7 @@ public class StormLibrary {
     public void prepare(boolean autostart) throws EmptyMediaItemsListException {
 
         if(this.stormGateway != null && this.stormMediaItems.size() == 0){
+            this.exoPlayerImpl.stop();
             this.stormGateway.prepare(autostart);
             return;
         }
@@ -228,10 +229,8 @@ public class StormLibrary {
         }
 
         if (autostart) {
-            this.exoPlayerImpl.prepare();
-            this.exoPlayerImpl.play();
-        }else
-            this.exoPlayerImpl.pause();
+            this.play();
+        }
 
     }
 

@@ -1,6 +1,8 @@
 package com.stormstreaming.librarysample;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,17 +27,68 @@ public class MainActivity extends AppCompatActivity {
 
         stormLibrary.initExoPlayer(this, findViewById(R.id.exoPlayerView));
 
-        StormMediaItem stormMediaItem = new StormMediaItem("sub1.mydomain.com",443,true,"my_stream_320","320p");
-        stormLibrary.addMediaItem(stormMediaItem);
-
-        stormMediaItem = new StormMediaItem("sub1.mydomain.com",443,true,"my_stream_720","720p");
+        StormMediaItem stormMediaItem = new StormMediaItem("stormdev.web-anatomy.com",443, true, "test_hd","320p");
         stormLibrary.addMediaItem(stormMediaItem, true);
 
+        stormMediaItem = new StormMediaItem("sub1.mydomain.com",443,true,"my_stream_720","720p");
+        stormLibrary.addMediaItem(stormMediaItem, false);
+
         try {
-            stormLibrary.prepare(true);
+            stormLibrary.prepare(false);
         } catch(Exception e){
             e.printStackTrace();
         }
+
+        Button add = findViewById(R.id.addButton);
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //StormMediaItem m = new StormMediaItem("stormdev.web-anatomy.com", 443, true, "test_hd", "4K");
+                //stormLibrary.addMediaItem(m, true);
+
+                //List<StormMediaItem> m = stormLibrary.getStormMediaItems();
+                //stormLibrary.removeMediaItem(m.get(0));
+                stormLibrary.clearStormMediaItems();
+                StormGateway stormGateway = stormLibrary.initStormGateway("test");
+
+                StormGatewayServer server = new StormGatewayServer("stormdev.web-anatomy.com","live", 443, true);
+                stormGateway.addStormGatewayServer(server);
+
+                try{
+
+                    stormLibrary.prepare(false);
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        try {
+            stormLibrary.prepare(false);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        Button play = findViewById(R.id.playButton);
+        play.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                System.out.println("Play");
+                stormLibrary.play();
+
+            }
+        });
+
+        Button pause = findViewById(R.id.pauseButton);
+        pause.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                System.out.println("Pause");
+                stormLibrary.pause();
+
+            }
+        });
 
 
         /*
