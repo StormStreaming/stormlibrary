@@ -190,7 +190,6 @@ public class StormLibrary {
     }
 
     public void clearStormMediaItems(){
-        this.stormMediaItems.clear();
         for(int i=0;i<this.stormMediaItems.size();i++){
             this.removeMediaItem(this.stormMediaItems.get(i));
         }
