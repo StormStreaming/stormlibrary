@@ -225,11 +225,10 @@ public class StormLibrary {
                 this.selectMediaItem(stormMediaItem);
             }
         }
-
-        if (autostart) {
-            this.exoPlayerImpl.prepare();
+        this.exoPlayerImpl.prepare();
+        if (autostart)
             this.exoPlayerImpl.play();
-        }
+
 
 
     }
