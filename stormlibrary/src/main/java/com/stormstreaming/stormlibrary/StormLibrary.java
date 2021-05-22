@@ -107,6 +107,7 @@ public class StormLibrary {
     }
 
     public void play() {
+        this.exoPlayerImpl.prepare();
         this.exoPlayerImpl.play();
     }
 
@@ -225,10 +226,11 @@ public class StormLibrary {
                 this.selectMediaItem(stormMediaItem);
             }
         }
-        this.exoPlayerImpl.prepare();
-        if (autostart)
+
+        if (autostart) {
+            this.exoPlayerImpl.prepare();
             this.exoPlayerImpl.play();
-        else
+        }else
             this.exoPlayerImpl.pause();
 
     }
