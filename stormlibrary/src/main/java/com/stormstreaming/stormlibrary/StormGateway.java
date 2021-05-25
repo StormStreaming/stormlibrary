@@ -87,9 +87,9 @@ public class StormGateway {
 
                     StormMediaItem stormMediaItem = null;
                     if(source.getString("protocol").equals("rtmp"))
-                        stormMediaItem = new StormMediaItem(serverList0.getString("host"), serverList0.getInt("port"), serverList0.getBoolean("ssl"), source.getString("streamName"), streamInfo.getString("label"), source.getString("host"), source.getString("application"));
+                        stormMediaItem = new StormMediaItem(serverList0.getString("host"), serverList0.getInt("port"), serverList0.getBoolean("ssl"), source.getString("application"), source.getString("streamName"), streamInfo.getString("label"), source.getString("rtmpHost"), source.getString("rtmpApplication"));
                     else
-                        stormMediaItem = new StormMediaItem(serverList0.getString("host"), serverList0.getInt("port"), serverList0.getBoolean("ssl"), source.getString("streamName"), streamInfo.getString("label"));
+                        stormMediaItem = new StormMediaItem(serverList0.getString("host"), serverList0.getInt("port"), serverList0.getBoolean("ssl"), source.getString("application"), source.getString("streamName"), streamInfo.getString("label"));
 
                     if(source.has("isDefault") && source.getBoolean("isDefault"))
                         stormMediaItem.setSelected(true);

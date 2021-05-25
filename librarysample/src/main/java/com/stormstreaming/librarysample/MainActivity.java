@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         stormLibrary.initExoPlayer(this, findViewById(R.id.exoPlayerView));
 
-        StormMediaItem stormMediaItem = new StormMediaItem("stormdev.web-anatomy.com",443, true, "test_hd","320p");
+        StormMediaItem stormMediaItem = new StormMediaItem("sub1.mydomain.com",443, true, "live", "test_hd","320p");
         stormLibrary.addMediaItem(stormMediaItem, true);
 
-        stormMediaItem = new StormMediaItem("sub1.mydomain.com",443,true,"my_stream_720","720p");
+        stormMediaItem = new StormMediaItem("sub2.mydomain.com",443,true, "live", "my_stream_720","720p");
         stormLibrary.addMediaItem(stormMediaItem, false);
 
         try {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         GATEWAY EXAMPLE:
          */
 
-        /*
+/*
         StormLibrary stormLibrary = new StormLibrary();
         stormLibrary.initExoPlayer(this, findViewById(R.id.exoPlayerView));
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         StormGatewayServer server = new StormGatewayServer("sub1.domain.com","live", 443, true);
         stormGateway.addStormGatewayServer(server);
 
-        StormGatewayServer server2 = new StormGatewayServer("sub2.domain.com","live", 443, true);
+        StormGatewayServer server2 = new StormGatewayServer("stormdev.web-anatomy.com","live", 443, true);
         stormGateway.addStormGatewayServer(server2);
 
         try {
@@ -60,13 +60,8 @@ public class MainActivity extends AppCompatActivity {
         } catch(Exception e){
             e.printStackTrace();
         }
-        */
 
-        try {
-            stormLibrary.prepare(false);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+ */
 
         Button play = findViewById(R.id.playButton);
         play.setOnClickListener(new View.OnClickListener(){

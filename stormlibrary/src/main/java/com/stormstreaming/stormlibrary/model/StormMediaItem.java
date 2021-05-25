@@ -13,13 +13,14 @@ public class StormMediaItem {
     private boolean isSSL;
     private String streamName;
     private String label;
+    private String applicationName;
     private boolean isSelected = false;
 
-    public StormMediaItem(String host, int port, boolean isSSL, String streamName, String label){
-        this(host, port, isSSL, streamName, label, host, "live");
+    public StormMediaItem(String host, int port, boolean isSSL, String applicationName, String streamName, String label){
+        this(host, port, isSSL, applicationName, streamName, label, host, "live");
     }
 
-    public StormMediaItem(String host, int port, boolean isSSL, String streamName, String label, String rtmpHost, String rtmpApplicationName){
+    public StormMediaItem(String host, int port, boolean isSSL, String applicationName, String streamName, String label, String rtmpHost, String rtmpApplicationName){
         this.host = host;
         this.rtmpHost = rtmpHost;
         this.rtmpApplicationName = rtmpApplicationName;
@@ -27,6 +28,15 @@ public class StormMediaItem {
         this.isSSL = isSSL;
         this.streamName = streamName;
         this.label = label;
+        this.applicationName = applicationName;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 
     public String getRtmpApplicationName() {
