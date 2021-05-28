@@ -17,7 +17,7 @@ public class StormMediaItem {
     private boolean isSelected = false;
 
     public StormMediaItem(String host, int port, boolean isSSL, String applicationName, String streamName, String label){
-        this(host, port, isSSL, applicationName, streamName, label, host, "live");
+        this(host, port, isSSL, applicationName, streamName, label, null, null);
     }
 
     public StormMediaItem(String host, int port, boolean isSSL, String applicationName, String streamName, String label, String rtmpHost, String rtmpApplicationName){
@@ -108,6 +108,8 @@ public class StormMediaItem {
     }
 
     public Uri getUri(){
-        return Uri.parse((isSSL() ? "wss" : "ws") + "://" + getHost() + ":" + getPort() + "/storm/stream/?url=rtmp%3A%2F%2F"+getRtmpHost()+"%3A1935%2F"+getRtmpApplicationName()+"&stream=" + getStreamName() + "&");
+        if(getRtmpHost() != null)
+            return Uri.parse((isSSL() ? "wss" : "ws") + "://" + getHost() + ":" + getPort() + "/"+getApplicationName()+"/"+getStreamName()+"/?url=rtmp%3A%2F%2F"+getRtmpHost()+"%3A1935%2F"+getRtmpApplicationName()+"%2F"+getStreamName()+"&");
+        return Uri.parse((isSSL() ? "wss" : "ws") + "://" + getHost() + ":" + getPort() + "/"+getApplicationName()+"/"+getStreamName()+"/?");
     }
 }
